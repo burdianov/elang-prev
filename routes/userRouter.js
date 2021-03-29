@@ -12,7 +12,9 @@ const {
   logout,
   updateUser,
   updateUsersRole,
-  deleteUser
+  deleteUser,
+  googleLogin,
+  facebookLogin
 } = require('../controllers/userController');
 
 const auth = require('../middleware/auth');
@@ -31,5 +33,8 @@ router.delete('/delete/:id', auth, authAdmin, deleteUser);
 
 router.get('/info', auth, getUserInfo);
 router.get('/all-info', auth, authAdmin, getAllUsersInfo);
+
+router.post('/google-login', googleLogin);
+router.post('/facebook-login', facebookLogin);
 
 module.exports = router;
