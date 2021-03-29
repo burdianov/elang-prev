@@ -29,7 +29,9 @@ const userController = {
         });
       }
 
-      const user = await User.findOne({ email });
+      const user = await User.findOne({
+        where: { email }
+      });
 
       if (user) {
         return res.status(400).json({
@@ -98,7 +100,9 @@ const userController = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      const user = await User.findOne({ email });
+      const user = await User.findOne({
+        where: { email }
+      });
 
       if (!user) {
         return res.status(400).json({ msg: 'This email is not registered' });
