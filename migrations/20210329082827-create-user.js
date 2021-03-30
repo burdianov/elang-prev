@@ -10,6 +10,7 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
         validate: {
           notNull: { msg: 'User must have a name' },
           notEmpty: { msg: 'Name must not be empty' }
@@ -26,6 +27,7 @@ module.exports = {
       },
       password: {
         type: Sequelize.STRING,
+        allowNull: false,
         validate: {
           notNull: { msg: 'Password must not be empty' },
           notEmpty: { msg: 'Password must not be empty' }
